@@ -12,14 +12,15 @@ var new_form = {
 	shop_name: "",
 	tag: "",
 	created_time: "",
-	img_valid: ""
+	img_valid: "",
+	promote: ""
 };
 
 export default class extends React.Component {
 	constructor(props) {
 		super(props);
 		this.state = {
-			arr_lists: [].sort((a, b) => a.item_id < b.item_id),
+			arr_lists: [],
 			primary: false,
 			form: Object.create(new_form),
 			toggleIndex: ""
@@ -168,6 +169,7 @@ export default class extends React.Component {
 									<th>Tag</th>
 									<th>Created_time</th>
 									<th>Img_valid</th>
+									<th>Promote</th>
 									<th>Click</th>
 								</tr>
 							</thead>
@@ -183,6 +185,7 @@ export default class extends React.Component {
 											<td>{list.tag}</td>
 											<td>{moment.unix(list.created_time).format("YYYY/MM/DD HH:mm:ss")}</td>
 											<td>{list.img_valid ? "True" : "False"}</td>
+											<td>{list.promote}</td>
 											<td />
 										</tr>
 									),
@@ -236,6 +239,17 @@ export default class extends React.Component {
 										<Label sm={3}>tag</Label>
 										<Col sm={9}>
 											<Input type="value" name="tag" value={this.state.form.tag} onChange={e => this.handleChange({ tag: e.target.value })} />
+										</Col>
+									</FormGroup>
+									<FormGroup row>
+										<Label sm={3}>promote</Label>
+										<Col sm={9}>
+											<Input
+												type="value"
+												name="promote"
+												value={this.state.form.promote}
+												onChange={e => this.handleChange({ promote: e.target.value })}
+											/>
 										</Col>
 									</FormGroup>
 								</Form>
