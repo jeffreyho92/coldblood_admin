@@ -130,11 +130,16 @@ export default class extends React.Component {
 	}
 
 	updateForm() {
+		var form = this.state.form;
+		if (form.promote == "") {
+			delete form.promote;
+		}
+
 		var self = this;
 		const url = config.api_url + "/item_update";
 		axios
 			.post(url, {
-				form: this.state.form
+				form: form
 			})
 			.then(function(res) {
 				if (!res.data.status) {
@@ -159,7 +164,7 @@ export default class extends React.Component {
 					</Link>
 				</h2>
 				<Row>
-					<Col sm={8}>
+					<Col>
 						<Table hover responsive className="">
 							<thead className="">
 								<tr>
