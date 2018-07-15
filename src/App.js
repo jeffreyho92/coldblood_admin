@@ -8,6 +8,7 @@ import { Link, Switch, Route, Redirect } from "react-router-dom";
 import { Container } from "reactstrap";
 import Home from "./views/Home/";
 import CreateItem from "./views/CreateItem/";
+import Charts from "./views/Charts/";
 
 class App extends Component {
   render() {
@@ -19,6 +20,7 @@ class App extends Component {
           <Switch>
             <Route path="/home" name="Home" component={Home} />
             <Route path="/create_item" name="CreateItem" component={CreateItem} />
+            <Route path="/charts" name="Charts" component={Charts} />
             <Redirect from="/" to="/home" />
           </Switch>
         </Container>
